@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "63ba4816-9149-4e63-bbea-2014788026fc",
+		"name": "Carl - AuthorizationDemo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "FallbackRequirementHandler",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:58468/dummy?forcefail=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58468",
+					"path": [
+						"dummy"
+					],
+					"query": [
+						{
+							"key": "forcefail",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ApiKeyRequirementHandler",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiKey",
+						"value": "cdef007a-5d8e-496d-b123-c9055d157d5f",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:58468/requireheaderkey",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58468",
+					"path": [
+						"requireheaderkey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DefaultPolicyRequirementHandler",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ SomeId: \"31074274-e0b6-4cd5-ae16-4fef2f91ec71\" }"
+				},
+				"url": {
+					"raw": "http://localhost:58468/requirepayload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "58468",
+					"path": [
+						"requirepayload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
